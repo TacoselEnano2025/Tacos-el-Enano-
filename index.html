@@ -4,398 +4,385 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tacos El Enano</title>
-  <meta name="description" content="Tacos El Enano · Tacos mañaneros con sabor a barrio y diseño único. Guisados caseros, desayunos y sabor de Monterrey.">
-
+  <meta name="description" content="Tacos El Enano · Tacos mañaneros con sabor a barrio y caricatura. Guisados caseros, desayunos y sabor regio.">
   <style>
     :root {
       --color-primario: #f7a600;
       --color-secundario: #e53935;
       --color-acento: #2e7d32;
       --color-fondo: #fff8e6;
-      --color-texto: #222222;
+      --color-texto: #222;
       --max-width: 1100px;
     }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background: radial-gradient(circle at top left,#fff3c4 0,#fff8e6 40%,#ffffff 100%);
+      color:var(--color-texto);
+      line-height:1.6;
+    }
+    img{max-width:100%;display:block;}
+    a{text-decoration:none;color:inherit;}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #fff3c4 0, #fff8e6 40%, #ffffff 100%);
-      color: var(--color-texto);
-      line-height: 1.6;
+    header{
+      background:rgba(255,255,255,.96);
+      border-bottom:1px solid rgba(0,0,0,.05);
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(6px);
     }
 
-    img { max-width: 100%; display: block; }
-    a { text-decoration: none; color: inherit; }
-
-    /* HEADER */
-    header {
-      background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(6px);
+    .nav{
+      max-width:var(--max-width);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:.8rem 1rem;
+      gap:1rem;
     }
 
-    .nav {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 0.6rem 1rem;
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      gap:.6rem;
     }
 
-    .logo-wrap { display: flex; align-items: center; gap: 0.6rem; }
-
-    .logo-img {
-      width: 46px; height: 46px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 2px solid rgba(0,0,0,0.08);
-      background: #fff7e0;
+    .logo-img{
+      width:48px;
+      height:48px;
+      border-radius:999px;
+      overflow:hidden;
+      border:2px solid rgba(0,0,0,.08);
+      background:#fff7e0;
+      flex-shrink:0;
     }
 
-    .logo-text {
-      line-height: 1.1;
-      font-weight: 800;
-      font-size: 1.05rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
+    .logo-text{
+      font-weight:800;
+      font-size:1.05rem;
+      text-transform:uppercase;
+      line-height:1.1;
     }
 
-    .nav-links { display: flex; gap: 1.1rem; font-size: 0.9rem; }
-    .nav-links a {
-      position: relative;
-      padding-bottom: 0.1rem;
+    .logo-text span{
+      font-size:.7rem;
+      font-weight:600;
+      text-transform:none;
+      opacity:.8;
+      display:block;
     }
 
-    .nav-cta {
-      padding: 0.45rem 0.95rem;
-      border-radius: 999px;
-      background: var(--color-secundario);
-      color: #fff;
-      font-size: 0.85rem;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
+    .nav-links{
+      display:flex;
+      gap:1.1rem;
+      font-size:.9rem;
+    }
+
+    .nav-links a{
+      position:relative;
+      padding-bottom:.1rem;
+    }
+
+    .nav-links a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:0;
+      height:2px;
+      background:var(--color-secundario);
+      transition:width .2s ease;
+    }
+
+    .nav-links a:hover::after{
+      width:100%;
+    }
+
+    .nav-cta{
+      background:var(--color-secundario);
+      color:#fff;
+      padding:.45rem .95rem;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      gap:.3rem;
+      font-size:.85rem;
+      box-shadow:0 3px 10px rgba(0,0,0,.18);
     }
 
     /* HERO */
-    .hero {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 2rem 1rem;
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 2rem;
-      align-items: center;
+    .hero{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:2rem 1rem;
+      display:grid;
+      grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
+      gap:2rem;
+      align-items:center;
     }
 
-    .hero-tag {
-      display: inline-flex;
-      gap: 0.4rem;
-      background: #fff;
-      padding: 0.22rem 0.7rem;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      border: 1px dashed rgba(0,0,0,0.12);
-      margin-bottom: 0.7rem;
+    .hero-tag{
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+      background:#fff;
+      padding:.25rem .7rem;
+      border-radius:999px;
+      font-size:.78rem;
+      border:1px dashed rgba(0,0,0,.12);
+      margin-bottom:.7rem;
     }
 
-    .hero h1 {
-      font-size: clamp(2.2rem, 4vw, 3rem);
-      margin-bottom: 0.6rem;
+    .hero-tag-dot{
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      background:var(--color-acento);
     }
 
-    .hero h1 span { color: var(--color-secundario); }
-
-    .hero-subtitle {
-      font-size: 1rem;
-      max-width: 32rem;
-      margin-bottom: 1rem;
+    h1{
+      font-size:clamp(2.2rem,4vw,3rem);
+      line-height:1.05;
+      margin-bottom:.6rem;
+      text-shadow:0 2px 0 rgba(255,255,255,.8);
     }
 
-    .hero-actions {
-      display: flex;
-      gap: 0.7rem;
-      flex-wrap: wrap;
+    h1 span{
+      color:var(--color-secundario);
     }
 
-    .btn {
-      padding: 0.7rem 1.4rem;
-      border-radius: 999px;
-      cursor: pointer;
-      font-size: 0.94rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
+    .hero-subtitle{
+      font-size:1rem;
+      max-width:32rem;
+      margin-bottom:1rem;
     }
 
-    .btn-primary {
-      background: var(--color-secundario);
-      color: white;
+    .hero-actions{
+      display:flex;
+      gap:.7rem;
+      flex-wrap:wrap;
+      margin:1rem 0 .4rem;
     }
 
-    .btn-secondary {
-      background: white;
-      border: 1px solid rgba(0,0,0,0.1);
+    .btn{
+      border-radius:999px;
+      padding:.7rem 1.4rem;
+      font-size:.94rem;
+      border:none;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+      transition:.1s ease;
+      box-shadow:0 4px 12px rgba(0,0,0,.15);
     }
 
-    .hero-visual {
-      background: #fff;
-      padding: 1rem;
-      border-radius: 24px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    .btn-primary{
+      background:var(--color-secundario);
+      color:#fff;
     }
 
-    /* SECCIONES */
-    section { padding: 2rem 1rem; }
-
-    .section-inner { max-width: var(--max-width); margin: 0 auto; }
-
-    .section-title { font-size: 1.7rem; margin-bottom: 0.5rem; }
-
-    .section-subtitle {
-      font-size: 0.95rem;
-      margin-bottom: 1.2rem;
-      max-width: 34rem;
-      opacity: 0.9;
+    .btn-secondary{
+      background:#fff;
+      border:1px solid rgba(0,0,0,.1);
     }
 
-    /* MENU */
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 6px 18px rgba(0,0,0,.2);
     }
 
-    .menu-card {
-      background: #fff;
-      padding: 1rem;
-      border-radius: 18px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    .hero-note{
+      font-size:.85rem;
+      opacity:.9;
     }
 
-    .menu-header {
-      display: flex;
-      justify-content: space-between;
-      font-weight: 600;
+    .hero-visual{
+      background:conic-gradient(from 210deg,#fff3c4,#ffe0b2,#ffccbc,#fff3c4);
+      border-radius:26px;
+      padding:1.2rem;
+      box-shadow:0 18px 40px rgba(0,0,0,.22);
+      position:relative;
     }
 
-    .menu-price { color: var(--color-secundario); font-weight: 700; }
+    .hero-visual-inner{
+      background:#fff;
+      border-radius:22px;
+      padding:1rem;
+    }
+
+    .hero-logo-big{
+      width:96px;
+      border-radius:999px;
+      overflow:hidden;
+      border:3px solid rgba(0,0,0,.08);
+      background:#fff7e0;
+    }
+
+    /* MENÚ */
+    section{
+      padding:2rem 1rem 0;
+    }
+
+    .section-title{
+      font-size:1.7rem;
+      margin-bottom:.4rem;
+    }
+
+    .section-subtitle{
+      font-size:.94rem;
+      opacity:.9;
+      margin-bottom:1.2rem;
+      max-width:34rem;
+    }
+
+    .menu-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:1.1rem;
+    }
+
+    .menu-card{
+      background:#fff;
+      padding:.9rem 1rem;
+      border-radius:18px;
+      box-shadow:0 8px 20px rgba(0,0,0,.08);
+      position:relative;
+    }
+
+    .menu-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:.3rem;
+    }
+
+    .menu-name{font-weight:600;font-size:1rem;}
+    .menu-price{font-weight:800;color:var(--color-secundario);}
+
+    .menu-desc{
+      font-size:.85rem;
+      opacity:.9;
+    }
+
+    .menu-tag{
+      font-size:.78rem;
+      opacity:.85;
+    }
 
     /* SUCURSALES */
-    .branch-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
+    .branch-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:1.1rem;
     }
 
-    .branch-card {
-      background: #fff;
-      padding: 1rem;
-      border-radius: 18px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      font-size: 0.9rem;
+    .branch-card{
+      background:#fff;
+      padding:1rem;
+      border-radius:18px;
+      box-shadow:0 8px 20px rgba(0,0,0,.08);
+      border-left:4px solid var(--color-primario);
     }
 
     /* CONTACTO */
-    .contact-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+    .contact-wrapper{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1.5rem;
     }
 
-    .contact-card {
-      background: #fff;
-      padding: 1rem;
-      border-radius: 18px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      font-size: 0.9rem;
+    .contact-card{
+      background:#fff;
+      padding:1rem;
+      border-radius:18px;
+      box-shadow:0 8px 20px rgba(0,0,0,.08);
     }
 
-    .map-placeholder {
-      background: #fff;
-      padding: 1rem;
-      border-radius: 18px;
-      border: 1px dashed rgba(0,0,0,0.1);
+    .contact-label{
+      font-size:.85rem;
+      font-weight:600;
+      opacity:.9;
+      text-transform:uppercase;
+      letter-spacing:.06em;
     }
 
-    /* FOOTER */
-    footer {
-      margin-top: 2rem;
-      padding: 1.2rem;
-      background: #111;
-      color: #fff;
-      text-align: center;
+    footer{
+      margin-top:2.5rem;
+      background:#111;
+      color:#fff;
+      padding:1.2rem 1rem;
     }
+
+    footer span{
+      font-size:.8rem;
+      opacity:.85;
+    }
+
   </style>
 </head>
 
 <body>
 
-<header>
-  <nav class="nav">
-    <div class="logo-wrap">
-      <div class="logo-img">
-        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/39718b9746665.560d953b7cc73.jpg" alt="Tacos El Enano logo">
-      </div>
-      <div class="logo-text">
-        TACOS EL ENANO
-        <span>Monterrey · Tacos mañaneros</span>
-      </div>
-    </div>
-
-    <div class="nav-links">
-      <a href="#menu">Menú</a>
-      <a href="#sucursales">Sucursales</a>
-      <a href="#contacto">Contacto</a>
-    </div>
-
-    <a class="nav-cta" href="https://wa.me/5218112345678">💬 Pedir</a>
-  </nav>
-</header>
-
-<main>
-
-<section class="hero">
-  <div>
-    <div class="hero-tag">Tacos mañaneros con estilo</div>
-
-    <h1>Sabor de barrio, <span>alma de caricatura</span>.</h1>
-
-    <p class="hero-subtitle">
-      En <strong>Tacos El Enano</strong> te damos guisados caseros con el estilo más chingón
-      de Monterrey. Pásale por tus taquitos antes de la chamba o la escuela.
-    </p>
-
-    <div class="hero-actions">
-      <a href="#menu" class="btn btn-primary">Ver menú</a>
-      <a href="#sucursales" class="btn btn-secondary">Sucursales</a>
-    </div>
-  </div>
-
-  <div class="hero-visual">
-    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/39718b9746665.560d953b7cc73.jpg" alt="El Enano personaje">
-  </div>
-</section>
-
-<section id="menu">
-  <div class="section-inner">
-    <h2 class="section-title">Menú</h2>
-    <p class="section-subtitle">Tacos calientitos, guisados de casa y sazón del Enano.</p>
-
-    <div class="menu-grid">
-
-      <div class="menu-card">
-        <div class="menu-header">
-          <span>Rajas con crema</span>
-          <span class="menu-price">$22</span>
+  <!-- HEADER -->
+  <header>
+    <nav class="nav">
+      <div class="logo-wrap">
+        <div class="logo-img">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/39718b9746665.560d953b7cc73.jpg" alt="Tacos El Enano Logo">
         </div>
-        <p>El consentido del Enano.</p>
-      </div>
-
-      <div class="menu-card">
-        <div class="menu-header">
-          <span>Frijol con chorizo</span>
-          <span class="menu-price">$20</span>
+        <div class="logo-text">
+          TACOS EL ENANO
+          <span>Monterrey · Tacos mañaneros</span>
         </div>
-        <p>Clásico, sabroso y llenador.</p>
       </div>
 
-      <div class="menu-card">
-        <div class="menu-header">
-          <span>Chicharrón en salsa</span>
-          <span class="menu-price">$22</span>
-        </div>
-        <p>Elige roja o verde.</p>
+      <div class="nav-links">
+        <a href="#menu">Menú</a>
+        <a href="#sucursales">Sucursales</a>
+        <a href="#contacto">Contacto</a>
       </div>
 
-      <div class="menu-card">
-        <div class="menu-header">
-          <span>Deshebrada</span>
-          <span class="menu-price">$25</span>
-        </div>
-        <p>Carne suave con salsa de casa.</p>
+      <a class="nav-cta" href="https://wa.me/5218112345678">
+        💬 WhatsApp
+      </a>
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <div class="hero-tag">
+        <div class="hero-tag-dot"></div>
+        Tacos mañaneros con diseño de caricatura
       </div>
 
-      <div class="menu-card">
-        <div class="menu-header">
-          <span>Chile relleno</span>
-          <span class="menu-price">$25</span>
-        </div>
-        <p>Poblano capeado con queso.</p>
+      <h1>Sabor de barrio, <span>alma de caricatura</span>.</h1>
+
+      <p class="hero-subtitle">
+        En <strong>Tacos El Enano</strong> mezclamos guisados caseros con un personaje que ya es parte de Monterrey.
+        Pásale por tus taquitos antes de la chamba, la escuela o la obra.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#menu" class="btn btn-primary">Ver menú completo</a>
+        <a href="#sucursales" class="btn btn-secondary">Ver sucursales</a>
       </div>
 
+      <p class="hero-note">
+        Nuevo León · Servicio mañanero · Pedidos especiales para oficina y cuadrillas
+      </p>
     </div>
-  </div>
-</section>
 
-<section id="sucursales">
-  <div class="section-inner">
-    <h2 class="section-title">Sucursales</h2>
-    <p class="section-subtitle">Muy pronto el Enano tendrá varias esquinas en Monterrey.</p>
-
-    <div class="branch-grid">
-      <div class="branch-card">
-        <h3>Centro</h3>
-        <p>Calle Ejemplo 123</p>
-      </div>
-
-      <div class="branch-card">
-        <h3>San Nicolás</h3>
-        <p>Av. Demo 456</p>
-      </div>
-
-      <div class="branch-card">
-        <h3>Guadalupe</h3>
-        <p>Col. Ilustración</p>
-      </div>
-
-      <div class="branch-card">
-        <h3>Apodaca</h3>
-        <p>Zona Industrial</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contacto">
-  <div class="section-inner">
-    <h2 class="section-title">Contacto</h2>
-    <p class="section-subtitle">Haz tu pedido o agenda charolas.</p>
-
-    <div class="contact-wrapper">
-
-      <div class="contact-card">
-        <p><strong>WhatsApp:</strong></p>
-        <p><a href="https://wa.me/5218112345678">+52 1 81 1234 5678</a></p>
-
-        <p><strong>Correo:</strong></p>
-        <p><a href="mailto:contacto@tacoselenano.mx">contacto@tacoselenano.mx</a></p>
-      </div>
-
-      <div class="map-placeholder">
-        <strong>Mapa próximamente</strong>
-        <p>Por ahora, búscanos como "Tacos El Enano" en Maps.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  © <span id="year"></span> Tacos El Enano · Monterrey, N.L.
-</footer>
-
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
-</body>
-</html>
+    <div class="hero-visual">
+      <div class="hero-visual-inner">
+        <div style="display:flex;gap:.8rem;align-items:center;">
+          <div class="hero-logo-big">
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/39718b9746665.560d953b7cc73.jpg">
+          </div>
+          <div>
+            <div style="font-weight:800;font-size:1rem;">TACOS EL ENANO</div>
+            <div style="font-size:.82rem;opacity:.9;">Arte original · Gu
