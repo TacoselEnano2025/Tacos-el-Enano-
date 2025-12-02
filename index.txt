@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tacos El Enano</title>
+  <meta name="description" content="Tacos El Enano · Tacos mañaneros con sabor a barrio y diseño único. Guisados caseros, desayunos y sabor de Monterrey.">
+
+  <style>
+    :root {
+      --color-primario: #f7a600;
+      --color-secundario: #e53935;
+      --color-acento: #2e7d32;
+      --color-fondo: #fff8e6;
+      --color-texto: #222222;
+      --max-width: 1100px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #fff3c4 0, #fff8e6 40%, #ffffff 100%);
+      color: var(--color-texto);
+      line-height: 1.6;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* HEADER */
+    header {
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(6px);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.6rem 1rem;
+    }
+
+    .logo-wrap { display: flex; align-items: center; gap: 0.6rem; }
+
+    .logo-img {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid rgba(0,0,0,0.08);
+      background: #fff7e0;
+    }
+
+    .logo-text {
+      line-height: 1.1;
+      font-weight: 800;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links { display: flex; gap: 1.1rem; font-size: 0.9rem; }
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.1rem;
+    }
+
+    .nav-cta {
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      background: var(--color-secundario);
+      color: #fff;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    /* HERO */
+    .hero {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      gap: 0.4rem;
+      background: #fff;
+      padding: 0.22rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      border: 1px dashed rgba(0,0,0,0.12);
+      margin-bottom: 0.7rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero h1 span { color: var(--color-secundario); }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      max-width: 32rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.94rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-primary {
+      background: var(--color-secundario);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .hero-visual {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 24px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    /* SECCIONES */
+    section { padding: 2rem 1rem; }
+
+    .section-inner { max-width: var(--max-width); margin: 0 auto; }
+
+    .section-title { font-size: 1.7rem; margin-bottom: 0.5rem; }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      max-width: 34rem;
+      opacity: 0.9;
+    }
+
+    /* MENU */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .menu-card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .menu-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+    }
+
+    .menu-price { color: var(--color-secundario); font-weight: 700; }
+
+    /* SUCURSALES */
+    .branch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .branch-card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      font-size: 0.9rem;
+    }
+
+    /* CONTACTO */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .contact-card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      font-size: 0.9rem;
+    }
+
+    .map-placeholder {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 18px;
+      border: 1px dashed rgba(0,0,0,0.1);
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 2rem;
+      padding: 1.2rem;
+      background: #111;
+      color: #fff;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="logo-wrap">
+      <div class="logo-img">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/39718b9746665.560d953b7cc73.jpg" alt="Tacos El Enano logo">
+      </div>
+      <div class="logo-text">
+        TACOS EL ENANO
+        <span>Monterrey · Tacos mañaneros</span>
+      </div>
+    </div>
+
+    <div class="nav-links">
+      <a href="#menu">Menú</a>
+      <a href="#sucursales">Sucursales</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+
+    <a class="nav-cta" href="https://wa.me/5218112345678">💬 Pedir</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <div>
+    <div class="hero-tag">Tacos mañaneros con estilo</div>
+
+    <h1>Sabor de barrio, <span>alma de caricatura</span>.</h1>
+
+    <p class="hero-subtitle">
+      En <strong>Tacos El Enano</strong> te damos guisados caseros con el estilo más chingón
+      de Monterrey. Pásale por tus taquitos antes de la chamba o la escuela.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#menu" class="btn btn-primary">Ver menú</a>
+      <a href="#sucursales" class="btn btn-secondary">Sucursales</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/39718b9746665.560d953b7cc73.jpg" alt="El Enano personaje">
+  </div>
+</section>
+
+<section id="menu">
+  <div class="section-inner">
+    <h2 class="section-title">Menú</h2>
+    <p class="section-subtitle">Tacos calientitos, guisados de casa y sazón del Enano.</p>
+
+    <div class="menu-grid">
+
+      <div class="menu-card">
+        <div class="menu-header">
+          <span>Rajas con crema</span>
+          <span class="menu-price">$22</span>
+        </div>
+        <p>El consentido del Enano.</p>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-header">
+          <span>Frijol con chorizo</span>
+          <span class="menu-price">$20</span>
+        </div>
+        <p>Clásico, sabroso y llenador.</p>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-header">
+          <span>Chicharrón en salsa</span>
+          <span class="menu-price">$22</span>
+        </div>
+        <p>Elige roja o verde.</p>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-header">
+          <span>Deshebrada</span>
+          <span class="menu-price">$25</span>
+        </div>
+        <p>Carne suave con salsa de casa.</p>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-header">
+          <span>Chile relleno</span>
+          <span class="menu-price">$25</span>
+        </div>
+        <p>Poblano capeado con queso.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="sucursales">
+  <div class="section-inner">
+    <h2 class="section-title">Sucursales</h2>
+    <p class="section-subtitle">Muy pronto el Enano tendrá varias esquinas en Monterrey.</p>
+
+    <div class="branch-grid">
+      <div class="branch-card">
+        <h3>Centro</h3>
+        <p>Calle Ejemplo 123</p>
+      </div>
+
+      <div class="branch-card">
+        <h3>San Nicolás</h3>
+        <p>Av. Demo 456</p>
+      </div>
+
+      <div class="branch-card">
+        <h3>Guadalupe</h3>
+        <p>Col. Ilustración</p>
+      </div>
+
+      <div class="branch-card">
+        <h3>Apodaca</h3>
+        <p>Zona Industrial</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="section-inner">
+    <h2 class="section-title">Contacto</h2>
+    <p class="section-subtitle">Haz tu pedido o agenda charolas.</p>
+
+    <div class="contact-wrapper">
+
+      <div class="contact-card">
+        <p><strong>WhatsApp:</strong></p>
+        <p><a href="https://wa.me/5218112345678">+52 1 81 1234 5678</a></p>
+
+        <p><strong>Correo:</strong></p>
+        <p><a href="mailto:contacto@tacoselenano.mx">contacto@tacoselenano.mx</a></p>
+      </div>
+
+      <div class="map-placeholder">
+        <strong>Mapa próximamente</strong>
+        <p>Por ahora, búscanos como "Tacos El Enano" en Maps.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  © <span id="year"></span> Tacos El Enano · Monterrey, N.L.
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
