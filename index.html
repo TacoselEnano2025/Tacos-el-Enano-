@@ -4,385 +4,403 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tacos El Enano</title>
-  <meta name="description" content="Tacos El Enano · Tacos mañaneros con sabor a barrio y caricatura. Guisados caseros, desayunos y sabor regio.">
+  <meta name="description" content="Tacos El Enano · Tacos mañaneros con sabor de barrio y diseño único.">
   <style>
     :root {
       --color-primario: #f7a600;
       --color-secundario: #e53935;
       --color-acento: #2e7d32;
       --color-fondo: #fff8e6;
-      --color-texto: #222;
+      --color-texto: #222222;
       --max-width: 1100px;
     }
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{
-      font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background: radial-gradient(circle at top left,#fff3c4 0,#fff8e6 40%,#ffffff 100%);
-      color:var(--color-texto);
-      line-height:1.6;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #fff3c4 0, #fff8e6 40%, #ffffff 100%);
+      color: var(--color-texto);
+      line-height: 1.6;
     }
-    img{max-width:100%;display:block;}
-    a{text-decoration:none;color:inherit;}
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
 
-    header{
-      background:rgba(255,255,255,.96);
-      border-bottom:1px solid rgba(0,0,0,.05);
-      position:sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter:blur(6px);
+    header {
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(6px);
     }
-
-    .nav{
-      max-width:var(--max-width);
-      margin:0 auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:.8rem 1rem;
-      gap:1rem;
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.6rem 1rem;
     }
-
-    .logo-wrap{
-      display:flex;
-      align-items:center;
-      gap:.6rem;
+    .logo-wrap { display: flex; align-items: center; gap: 0.6rem; }
+    .logo-img {
+      width: 46px; height: 46px; border-radius: 999px;
+      overflow: hidden; border: 2px solid rgba(0,0,0,0.08);
+      background: #fff7e0; flex-shrink: 0;
     }
-
-    .logo-img{
-      width:48px;
-      height:48px;
-      border-radius:999px;
-      overflow:hidden;
-      border:2px solid rgba(0,0,0,.08);
-      background:#fff7e0;
-      flex-shrink:0;
+    .logo-text {
+      line-height: 1.1;
+      font-weight: 800;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
-
-    .logo-text{
-      font-weight:800;
-      font-size:1.05rem;
-      text-transform:uppercase;
-      line-height:1.1;
+    .logo-text span {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: none;
+      opacity: 0.8;
     }
-
-    .logo-text span{
-      font-size:.7rem;
-      font-weight:600;
-      text-transform:none;
-      opacity:.8;
-      display:block;
+    .nav-links { display: flex; gap: 1.1rem; font-size: 0.9rem; }
+    .nav-links a { position: relative; padding-bottom: 0.1rem; }
+    .nav-links a::after {
+      content: ""; position: absolute; left: 0; bottom: 0;
+      width: 0; height: 2px; background: var(--color-secundario);
+      transition: width 0.2s ease;
     }
-
-    .nav-links{
-      display:flex;
-      gap:1.1rem;
-      font-size:.9rem;
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--color-secundario);
+      color: #fff;
+      font-size: 0.85rem;
+      cursor: pointer;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.18);
     }
+    .nav-cta span { font-size: 1.05rem; }
 
-    .nav-links a{
-      position:relative;
-      padding-bottom:.1rem;
+    main { padding-bottom: 2.5rem; }
+    .hero {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.8rem 1rem 2.2rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2.2rem;
+      align-items: center;
     }
-
-    .nav-links a::after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:0;
-      width:0;
-      height:2px;
-      background:var(--color-secundario);
-      transition:width .2s ease;
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: #fff; padding: 0.22rem 0.7rem;
+      border-radius: 999px; font-size: 0.78rem;
+      border: 1px dashed rgba(0,0,0,0.12);
+      margin-bottom: 0.7rem;
     }
-
-    .nav-links a:hover::after{
-      width:100%;
+    .hero-tag-dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--color-acento);
     }
-
-    .nav-cta{
-      background:var(--color-secundario);
-      color:#fff;
-      padding:.45rem .95rem;
-      border-radius:999px;
-      display:flex;
-      align-items:center;
-      gap:.3rem;
-      font-size:.85rem;
-      box-shadow:0 3px 10px rgba(0,0,0,.18);
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      line-height: 1.05;
+      margin-bottom: 0.6rem;
+      text-shadow: 0 2px 0 rgba(255,255,255,0.8);
     }
-
-    /* HERO */
-    .hero{
-      max-width:var(--max-width);
-      margin:0 auto;
-      padding:2rem 1rem;
-      display:grid;
-      grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
-      gap:2rem;
-      align-items:center;
+    .hero h1 span { color: var(--color-secundario); }
+    .hero-subtitle { font-size: 1rem; max-width: 32rem; margin-bottom: 1rem; }
+    .hero-subtitle strong { color: var(--color-acento); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin: 1rem 0 0.4rem; }
+    .btn {
+      border-radius: 999px; padding: 0.72rem 1.4rem; border: none;
+      font-size: 0.94rem; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, opacity 0.1s ease;
     }
-
-    .hero-tag{
-      display:inline-flex;
-      align-items:center;
-      gap:.4rem;
-      background:#fff;
-      padding:.25rem .7rem;
-      border-radius:999px;
-      font-size:.78rem;
-      border:1px dashed rgba(0,0,0,.12);
-      margin-bottom:.7rem;
+    .btn-primary { background: var(--color-secundario); color: #fff; }
+    .btn-secondary {
+      background: #ffffff; border: 1px solid rgba(0,0,0,0.08);
+      color: #333; box-shadow: none;
     }
-
-    .hero-tag-dot{
-      width:9px;
-      height:9px;
-      border-radius:50%;
-      background:var(--color-acento);
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      opacity: 0.97;
     }
+    .hero-note { font-size: 0.86rem; opacity: 0.9; margin-top: 0.4rem; }
 
-    h1{
-      font-size:clamp(2.2rem,4vw,3rem);
-      line-height:1.05;
-      margin-bottom:.6rem;
-      text-shadow:0 2px 0 rgba(255,255,255,.8);
+    .hero-visual {
+      position: relative;
+      border-radius: 26px;
+      padding: 1.2rem;
+      background: conic-gradient(from 210deg, #fff3c4, #ffe0b2, #ffccbc, #fff3c4);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.22);
+      overflow: hidden;
     }
-
-    h1 span{
-      color:var(--color-secundario);
+    .hero-visual-inner {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 1rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
     }
-
-    .hero-subtitle{
-      font-size:1rem;
-      max-width:32rem;
-      margin-bottom:1rem;
+    .hero-logo-big {
+      width: 96px; border-radius: 999px; overflow: hidden;
+      border: 3px solid rgba(0,0,0,0.08); background: #fff7e0;
     }
-
-    .hero-actions{
-      display:flex;
-      gap:.7rem;
-      flex-wrap:wrap;
-      margin:1rem 0 .4rem;
+    .hero-visual-heading {
+      font-weight: 800; font-size: 1.05rem;
+      text-transform: uppercase; letter-spacing: 0.08em;
     }
-
-    .btn{
-      border-radius:999px;
-      padding:.7rem 1.4rem;
-      font-size:.94rem;
-      border:none;
-      cursor:pointer;
-      display:inline-flex;
-      align-items:center;
-      gap:.4rem;
-      transition:.1s ease;
-      box-shadow:0 4px 12px rgba(0,0,0,.15);
+    .hero-visual-list {
+      display: flex; flex-wrap: wrap; gap: 0.35rem;
+      font-size: 0.8rem;
     }
-
-    .btn-primary{
-      background:var(--color-secundario);
-      color:#fff;
+    .chip {
+      border-radius: 999px;
+      padding: 0.2rem 0.7rem;
+      background: var(--color-fondo);
+      border: 1px solid rgba(0,0,0,0.06);
     }
-
-    .btn-secondary{
-      background:#fff;
-      border:1px solid rgba(0,0,0,.1);
+    .hero-hours {
+      font-size: 0.84rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-top: 0.5rem;
     }
-
-    .btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 6px 18px rgba(0,0,0,.2);
+    .hero-badge {
+      position: absolute;
+      top: 0.9rem; right: 1rem;
+      background: #222; color: #fff3c4;
+      border-radius: 999px;
+      padding: 0.35rem 0.8rem;
+      font-size: 0.75rem;
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
     }
+    .hero-badge span { color: #ffeb3b; }
 
-    .hero-note{
-      font-size:.85rem;
-      opacity:.9;
+    section { padding: 1rem 1rem 0; }
+    .section-inner { max-width: var(--max-width); margin: 0 auto; }
+    .section-title { font-size: 1.7rem; margin-bottom: 0.35rem; }
+    .section-subtitle {
+      font-size: 0.94rem; opacity: 0.9;
+      margin-bottom: 1.1rem; max-width: 34rem;
     }
 
-    .hero-visual{
-      background:conic-gradient(from 210deg,#fff3c4,#ffe0b2,#ffccbc,#fff3c4);
-      border-radius:26px;
-      padding:1.2rem;
-      box-shadow:0 18px 40px rgba(0,0,0,.22);
-      position:relative;
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.1rem;
+    }
+    .menu-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 0.9rem 1rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .menu-card::before {
+      content: "";
+      position: absolute;
+      right: -40px; top: -40px;
+      width: 80px; height: 80px;
+      background: radial-gradient(circle, rgba(247,166,0,0.25), transparent 60%);
+      opacity: 0.7;
+    }
+    .menu-header {
+      display: flex; justify-content: space-between;
+      align-items: baseline; gap: 0.4rem;
+    }
+    .menu-name { font-weight: 600; font-size: 1rem; }
+    .menu-price { font-weight: 800; color: var(--color-secundario); font-size: 0.95rem; }
+    .menu-desc { font-size: 0.85rem; opacity: 0.9; }
+    .menu-tag { font-size: 0.78rem; opacity: 0.82; }
+
+    .branch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.1rem;
+      margin-top: 0.4rem;
+    }
+    .branch-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 0.9rem 1rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      font-size: 0.9rem;
+      border-left: 4px solid var(--color-primario);
+    }
+    .branch-name { font-weight: 650; margin-bottom: 0.1rem; }
+    .branch-address { opacity: 0.9; margin-bottom: 0.2rem; }
+    .branch-hours { font-size: 0.8rem; opacity: 0.85; margin-bottom: 0.2rem; }
+    .branch-note { font-size: 0.78rem; opacity: 0.85; }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+    .contact-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1rem 1.1rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      font-size: 0.9rem;
+    }
+    .contact-row { margin-bottom: 0.7rem; }
+    .contact-label {
+      font-weight: 600;
+      font-size: 0.85rem;
+      opacity: 0.9;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .contact-value { margin-top: 0.18rem; }
+    .contact-buttons { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.6rem; }
+    .map-placeholder {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      font-size: 0.85rem;
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.3rem;
+      border: 1px dashed rgba(0,0,0,0.08);
     }
 
-    .hero-visual-inner{
-      background:#fff;
-      border-radius:22px;
-      padding:1rem;
+    footer {
+      margin-top: 2.1rem;
+      padding: 1.2rem 1rem 1.6rem;
+      background: #111;
+      color: #f9f9f9;
     }
-
-    .hero-logo-big{
-      width:96px;
-      border-radius:999px;
-      overflow:hidden;
-      border:3px solid rgba(0,0,0,.08);
-      background:#fff7e0;
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      font-size: 0.78rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.6rem;
+      align-items: center;
+      opacity: 0.9;
     }
+    .footer-inner a { color: #ffeb3b; }
 
-    /* MENÚ */
-    section{
-      padding:2rem 1rem 0;
+    @media (max-width: 880px) {
+      .hero { grid-template-columns: 1fr; padding-top: 1.3rem; }
+      .hero-visual { order: -1; }
     }
-
-    .section-title{
-      font-size:1.7rem;
-      margin-bottom:.4rem;
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .nav { justify-content: space-between; }
+      .hero { padding-inline: 1rem; }
     }
-
-    .section-subtitle{
-      font-size:.94rem;
-      opacity:.9;
-      margin-bottom:1.2rem;
-      max-width:34rem;
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2rem; }
+      .btn { width: 100%; justify-content: center; }
+      .contact-wrapper { grid-template-columns: 1fr; }
     }
-
-    .menu-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:1.1rem;
-    }
-
-    .menu-card{
-      background:#fff;
-      padding:.9rem 1rem;
-      border-radius:18px;
-      box-shadow:0 8px 20px rgba(0,0,0,.08);
-      position:relative;
-    }
-
-    .menu-header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:.3rem;
-    }
-
-    .menu-name{font-weight:600;font-size:1rem;}
-    .menu-price{font-weight:800;color:var(--color-secundario);}
-
-    .menu-desc{
-      font-size:.85rem;
-      opacity:.9;
-    }
-
-    .menu-tag{
-      font-size:.78rem;
-      opacity:.85;
-    }
-
-    /* SUCURSALES */
-    .branch-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:1.1rem;
-    }
-
-    .branch-card{
-      background:#fff;
-      padding:1rem;
-      border-radius:18px;
-      box-shadow:0 8px 20px rgba(0,0,0,.08);
-      border-left:4px solid var(--color-primario);
-    }
-
-    /* CONTACTO */
-    .contact-wrapper{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:1.5rem;
-    }
-
-    .contact-card{
-      background:#fff;
-      padding:1rem;
-      border-radius:18px;
-      box-shadow:0 8px 20px rgba(0,0,0,.08);
-    }
-
-    .contact-label{
-      font-size:.85rem;
-      font-weight:600;
-      opacity:.9;
-      text-transform:uppercase;
-      letter-spacing:.06em;
-    }
-
-    footer{
-      margin-top:2.5rem;
-      background:#111;
-      color:#fff;
-      padding:1.2rem 1rem;
-    }
-
-    footer span{
-      font-size:.8rem;
-      opacity:.85;
-    }
-
   </style>
 </head>
-
 <body>
-
-  <!-- HEADER -->
   <header>
     <nav class="nav">
       <div class="logo-wrap">
         <div class="logo-img">
-          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/39718b9746665.560d953b7cc73.jpg" alt="Tacos El Enano Logo">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/39718b9746665.560d953b7cc73.jpg" alt="Logo Tacos El Enano">
         </div>
         <div class="logo-text">
           TACOS EL ENANO
           <span>Monterrey · Tacos mañaneros</span>
         </div>
       </div>
-
       <div class="nav-links">
         <a href="#menu">Menú</a>
         <a href="#sucursales">Sucursales</a>
         <a href="#contacto">Contacto</a>
       </div>
-
-      <a class="nav-cta" href="https://wa.me/5218112345678">
-        💬 WhatsApp
+      <a href="https://wa.me/5218112345678" class="nav-cta">
+        <span>💬</span> Pedir por WhatsApp
       </a>
     </nav>
   </header>
 
-
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <div class="hero-tag">
-        <div class="hero-tag-dot"></div>
-        Tacos mañaneros con diseño de caricatura
+  <main>
+    <section class="hero" id="inicio">
+      <div>
+        <div class="hero-tag">
+          <div class="hero-tag-dot"></div>
+          Tacos mañaneros con diseño de caricatura
+        </div>
+        <h1>
+          Sabor de barrio, <span>alma de caricatura</span>.
+        </h1>
+        <p class="hero-subtitle">
+          En <strong>Tacos El Enano</strong> mezclamos guisados caseros con un personaje que ya es de la raza.
+          Pásale por tus taquitos antes de entrar a la chamba, la escuela o la obra.
+        </p>
+        <div class="hero-actions">
+          <a href="#menu" class="btn btn-primary">Ver menú completo</a>
+          <a href="#sucursales" class="btn btn-secondary">Ver sucursales</a>
+        </div>
+        <p class="hero-note">
+          Monterrey, N.L. · Servicio mañanero · Pedidos para oficina, cuadrillas y eventos chicos.
+        </p>
       </div>
 
-      <h1>Sabor de barrio, <span>alma de caricatura</span>.</h1>
-
-      <p class="hero-subtitle">
-        En <strong>Tacos El Enano</strong> mezclamos guisados caseros con un personaje que ya es parte de Monterrey.
-        Pásale por tus taquitos antes de la chamba, la escuela o la obra.
-      </p>
-
-      <div class="hero-actions">
-        <a href="#menu" class="btn btn-primary">Ver menú completo</a>
-        <a href="#sucursales" class="btn btn-secondary">Ver sucursales</a>
-      </div>
-
-      <p class="hero-note">
-        Nuevo León · Servicio mañanero · Pedidos especiales para oficina y cuadrillas
-      </p>
-    </div>
-
-    <div class="hero-visual">
-      <div class="hero-visual-inner">
-        <div style="display:flex;gap:.8rem;align-items:center;">
-          <div class="hero-logo-big">
-            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/39718b9746665.560d953b7cc73.jpg">
+      <aside class="hero-visual">
+        <div class="hero-badge">
+          ⭐ <span>Receta casera · Arte original</span>
+        </div>
+        <div class="hero-visual-inner">
+          <div style="display: flex; gap: 0.8rem; align-items: center;">
+            <div class="hero-logo-big">
+              <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/39718b9746665.560d953b7cc73.jpg" alt="Personaje Tacos El Enano">
+            </div>
+            <div>
+              <div class="hero-visual-heading">TACOS EL ENANO</div>
+              <div style="font-size: 0.82rem; opacity: 0.9;">
+                El taquito que siempre cae bien: caricaturesco por fuera, serio con el sabor.
+              </div>
+            </div>
           </div>
-          <div>
-            <div style="font-weight:800;font-size:1rem;">TACOS EL ENANO</div>
-            <div style="font-size:.82rem;opacity:.9;">Arte original · Gu
+          <div class="hero-visual-list" style="margin-top: 0.7rem;">
+            <span class="chip">Rajas con crema</span>
+            <span class="chip">Frijol con chorizo</span>
+            <span class="chip">Chicharrón en salsa</span>
+            <span class="chip">Deshebrada</span>
+            <span class="chip">Barbacoa</span>
+          </div>
+          <div class="hero-hours">
+            <div>🕓 Lunes a domingo · 6:30 am – 12:00 pm</div>
+            <div>🌮 Paquetes especiales para oficinas y cuadrillas</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="menu">
+      <div class="section-inner">
+        <h2 class="section-title">Menú de guisados</h2>
+        <p class="section-subtitle">
+          Todos los tacos van en tortilla de maíz bien calientita. Pídelos normales, dorados o al vapor.
+          Pregunta por los especiales del día del Enano.
+        </p>
